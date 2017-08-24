@@ -71,4 +71,4 @@ def send_tweet(message, imageURL):
         print("Error, No Image")
         api.update_status(message)
 
-print construct_tweet("clams")
+print construct_tweet("egg")
