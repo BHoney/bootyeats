@@ -1,7 +1,6 @@
 import tweepy
 import requests
 import json
-import credentials as cred
 import random
 import os
 
