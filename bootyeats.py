@@ -1,23 +1,26 @@
 import tweepy
 import requests
 import json
-import credentials as cred
+#import credentials as cred
 import random
 import os
+from boto.s3.connection import S3Connection
 
 #Booty Eats v.0.0.5
 
 #Authorization Happens Here
 def init_twitter():
-    auth = tweepy.OAuthHandler(cred.consumer_key, cred.consumer_key_secret)
-    auth.set_access_token(cred.access_token, cred.access_token_secret)
+    access = S3Connection(os.environ[ACCESS_TOKEN], os.environ[ACCESS_TOKEN_SECRET])
+    consume = S3Connection(os.environ[CONSUMER_KEY], os.environ[CONSUMER_KEY_SECRET])
+    auth = tweepy.OAuthHandler(consume)
+    auth.set_access_token(access)
     api = tweepy.API(auth)
     return api
 
 
 #Functions here
 def get_recipes(ingredient):
-    f2f = cred.f2f_api
+    f2f = S3Connection(os.environ[F2F_API])
     r = requests.get("http://food2fork.com/api/search?key=%s&q=%s" % (f2f, ingredient))
     output = None
     limit = 0
