@@ -49,7 +49,7 @@ def construct_tweet(food):
     image = get_image(slug)
 
     output = "Eat the booty like %s" % (title)
-    if len(output) < 100:
+    if len(output) < 200:
         output += "\n%s" % (link)
         return send_tweet(output, image)
     else:
@@ -70,4 +70,4 @@ def send_tweet(message, imageURL):
         print("Error, No Image")
         api.update_status(message)
 
-print construct_tweet("flour")
+print construct_tweet("thanksgiving")
