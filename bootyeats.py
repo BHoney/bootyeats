@@ -70,4 +70,4 @@ def send_tweet(message, imageURL):
         print("Error, No Image")
         api.update_status(message)
 
-print construct_tweet("christmas")
+print construct_tweet("New Years")
